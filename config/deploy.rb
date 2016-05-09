@@ -3,7 +3,7 @@ lock '3.5.0'
 
 # Gulliver Configuration
 set :application, 'gulliverapp'
-set :repo_url, 'git@github.com:devdatta/contactbook.git' # Edit this to match your repository
+set :repo_url, 'git@github.com:crocode-mobi/gulliver-api' # Edit this to match your repository
 
 set :branch, :master
 set :deploy_to, '/home/deploy/gulliverapp'
