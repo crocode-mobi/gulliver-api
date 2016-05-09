@@ -29,6 +29,14 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true
 set :puma_preload_app, false
 
+namespace :deploy do
+  namespace :assets do
+    task :precompile do
+      logger.info "No precompile"
+    end
+  end
+end
+
 # namespace :deploy do
 #
 #   after :restart, :clear_cache do
