@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: iCareApi_development
+  database: gulliverapi_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: iCareApi_test
+  database: gulliverapi_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: iCareApi_production
-  username: iCareApi
-  password: <%= ENV['ICAREAPI_DATABASE_PASSWORD'] %>
+  database: gulliverapi_production
+  username: gulliver
+  password: <%= ENV['GULLIVERAPI_DATABASE_PASSWORD'] %>
