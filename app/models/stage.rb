@@ -43,6 +43,8 @@ class Stage < ActiveRecord::Base
     km - distance_until_current_stage
   end
 
+  
+
   private
 
     def position_sequence

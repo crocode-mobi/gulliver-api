@@ -6,7 +6,7 @@ class Api::V1::ValidationsController < ApplicationController
       @available = @user ? false : true
       render json: { available: @available }, status: :ok
     else
-      render json: { errors: "Email should be present to validate"}
+      render json: { errors: "Email should be present to apply validations"}
     end
   end
 

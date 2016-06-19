@@ -15,11 +15,11 @@
 #
 
 class ViewedTip < ActiveRecord::Base
-  # Validations
-  validates :user, :tip, :shared, presence: true
-  validates_uniqueness_of :user, scope: :tip
-
   # Associations
   belongs_to :user
   belongs_to :tip
+
+  # Validations
+  validates :user, :tip, presence: true
+  validates_uniqueness_of :user, scope: :tip
 end

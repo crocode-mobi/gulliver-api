@@ -18,7 +18,8 @@ gem 'merit'
 # Deploytment Gems
 gem 'figaro'
 gem 'puma'
-
+# Push Notifications
+gem 'urbanairship'
 # Metrics
 # gem 'newrelic_rpm'
 # Background processing

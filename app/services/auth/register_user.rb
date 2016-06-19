@@ -1,4 +1,4 @@
-class RegisterUser
+class Auth::RegisterUser
   include ActiveModel::Validations
 
   # Attributes

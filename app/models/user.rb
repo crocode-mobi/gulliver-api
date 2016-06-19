@@ -49,10 +49,16 @@ class User < ActiveRecord::Base
   has_many :activities,   dependent: :destroy
   has_many :hydratations, dependent: :destroy
   has_many :meals,        dependent: :destroy
+
   has_many :viewed_tips,  dependent: :destroy
   has_many :tips,         through:   :viewed_tips
+
   has_many :finished_stages, dependent: :destroy
   has_many :stages,       through: :finished_stages
+
+  has_many :purchased_products, dependent: :destroy
+  has_many :products,     through: :purchased_products
+
   # Attachments
   has_attached_file :avatar, styles: {
     square: '250x250#',
@@ -106,6 +112,5 @@ class User < ActiveRecord::Base
 		self.avatar = URI.parse(url)
 		@avatar_url = url
 	end
-
 
 end

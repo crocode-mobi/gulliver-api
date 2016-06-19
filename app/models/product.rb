@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: tips
+# Table name: products
 #
 #  id                 :integer          not null, primary key
 #  title              :string
+#  subtitle           :string
 #  description        :text
-#  section            :string
-#  points             :integer          default("0")
+#  points             :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  image_file_name    :string
@@ -14,22 +14,13 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #
-# Indexes
-#
-#  index_tips_on_section  (section)
-#
 
-class Tip < ActiveRecord::Base
-  # Attributes
+class Product < ActiveRecord::Base
   attr_reader :image_url
 
-  # Scopes
-  scope :hydratation, -> { where(section: "hydratation") }
-  scope :meal, -> { where(section: "meal") }
-
   # Associations
-  has_many :viewed_tips, dependent: :destroy
-  has_many :users, through: :viewed_tips
+  has_many :purchased_products, dependent: :destroy
+  has_many :users,     through: :purchased_products
   # Attachments
   has_attached_file :image, styles: {
     square: '250x250#',
@@ -37,14 +28,13 @@ class Tip < ActiveRecord::Base
   }
 
   # Validations
-  validates :title, :description, :section, :points, presence: true
-  validates :section, inclusion: { in: %w(hydratation meal),
-                      message: "%{value} is not valid. Should be 'hydratation' or 'meal'" }
+  validates :title, :subtitle, :description, :points, :image, presence: true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_presence     :image
+	validates_attachment_presence     :image
 
   def image_url=(url)
 		self.image = URI.parse(url)
 		@image_url = url
 	end
+
 end

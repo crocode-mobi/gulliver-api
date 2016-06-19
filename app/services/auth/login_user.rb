@@ -1,4 +1,4 @@
-class LoginUser
+class Auth::LoginUser
   include ActiveModel::Validations
 
   # Attributes

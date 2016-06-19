@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: gulliverapi_production
-  username: gulliver
-  password: <%= ENV['GULLIVERAPI_DATABASE_PASSWORD'] %>
+  username: gulliverapi
+  password: gulliverapi

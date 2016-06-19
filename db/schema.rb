@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507134736) do
+ActiveRecord::Schema.define(version: 20160511105108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,30 @@ ActiveRecord::Schema.define(version: 20160507134736) do
     t.integer "sash_id"
     t.string  "category", default: "default"
   end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "description"
+    t.integer  "points"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "purchased_products", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.integer  "points_billed"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "purchased_products", ["product_id"], name: "index_purchased_products_on_product_id", using: :btree
+  add_index "purchased_products", ["user_id"], name: "index_purchased_products_on_user_id", using: :btree
 
   create_table "sashes", force: :cascade do |t|
     t.datetime "created_at"

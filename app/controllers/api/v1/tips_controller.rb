@@ -14,14 +14,6 @@ class Api::V1::TipsController < ApplicationController
     @tips = Tip.meal.page(params[:page])
   end
 
-  def running
-    @tips = Tip.running.page(params[:page])
-  end
-
-  def other
-    @tips = Tip.other.page(params[:page])
-  end
-
   def share
     @shared_tip = @current_user.viewed_tips.find_by(tip: @tip)
     @shared_tip.update(shared: true) if @shared_tip

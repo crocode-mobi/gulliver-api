@@ -2,7 +2,7 @@ class Api::V1::SessionsController < ApplicationController
   before_action :logout_user!, only: [:logout]
 
   def login
-    login = LoginUser.new(login_params)
+    login = Auth::LoginUser.new(login_params)
     result = login.call
 
     if result.success?
@@ -18,7 +18,7 @@ class Api::V1::SessionsController < ApplicationController
     # HotFix for iOS (AFNetworking cant send images attached to a resource)
     @user.avatar = params[:avatar] if params[:avatar].present?
 
-    register = RegisterUser.new(
+    register = Auth::RegisterUser.new(
       user: @user,
       push_token: register_params[:push_token],
       device: register_params[:device],

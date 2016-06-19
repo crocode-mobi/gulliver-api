@@ -54,11 +54,16 @@ Rails.application.routes.draw do
         collection do
           get :meal
           get :hydratation
-          get :running
-          get :other
         end
         member do
           post :share
+        end
+      end
+
+      # Products ---------------------------
+      resources :products, only: [:index, :show] do
+        member do
+          post :purchase
         end
       end
     end

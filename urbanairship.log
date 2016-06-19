@@ -1,0 +1,21 @@
+# Logfile created on 2016-05-13 14:16:53+0200 by logger.rb/47272
+D, [2016-05-13 14:16:53#58618] DEBUG -- Urbanairship: Making POST request to https://go.urbanairship.com/api/push/.
+	Headers:
+		content-type: application/json
+		accept: application/vnd.urbanairship+json; version=3
+	Body:
+{"audience":"all","notification":{"alert":"Hello"},"device_types":"all"}
+D, [2016-05-13 14:16:53#58618] DEBUG -- Urbanairship: Received 401 response. Headers:
+	{:www_authenticate=>"Basic realm=\"API\"", :content_type=>"application/vnd.urbanairship+json;version=3", :content_length=>"54", :date=>"Fri, 13 May 2016 12:16:53 GMT", :connection=>"close"}
+Body:
+	{"ok"=>false, "error"=>"Unauthorized", "error_code"=>40101}
+D, [2016-05-13 17:42:36#1450] DEBUG -- Urbanairship: Making POST request to https://go.urbanairship.com/api/push/.
+	Headers:
+		content-type: application/json
+		accept: application/vnd.urbanairship+json; version=3
+	Body:
+{"audience":"all","notification":{"alert":"Hello"},"device_types":"all"}
+D, [2016-05-13 17:42:37#1450] DEBUG -- Urbanairship: Received 401 response. Headers:
+	{:www_authenticate=>"Basic realm=\"API\"", :content_type=>"application/vnd.urbanairship+json;version=3", :content_length=>"54", :date=>"Fri, 13 May 2016 15:42:37 GMT", :connection=>"close"}
+Body:
+	{"ok"=>false, "error"=>"Unauthorized", "error_code"=>40101}
